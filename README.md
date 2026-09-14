@@ -161,9 +161,123 @@ Based on the test execution results, several functional issues were identified a
 
 ## 1d. Contact
 
-- Name: Heri Anhari
+- Name: `Heri Anhari`
 - Email: hr.anhari@gmail.com
 - LinkedIn: https://www.linkedin.com/in/heri-anhari-1b175bba/
 - GitHub: https://github.com/HerryAnhari/
 
 # 2. Test Case — 40 Data
+Go to TestCases.xlsx file
+
+# 3. Bug Report
+## BUG-001 — Payment Failed Message Not Displayed
+```
+Module: Payment
+Severity: High
+Priority: High
+Status: Open
+
+- Environment
+Browser: Google Chrome
+OS: MacOS
+Environment: Staging
+
+- Preconditions
+User sudah login dan memiliki product di shopping cart.
+
+- Steps to Reproduce
+Login ke aplikasi.
+Tambahkan product ke cart.
+Masuk ke halaman checkout.
+Pilih payment method.
+Masukkan payment data yang invalid.
+Klik Pay Now.
+
+- Expected Result
+Sistem menampilkan pesan bahwa pembayaran gagal dan memberikan informasi kepada user untuk mencoba kembali.
+
+- Actual Result
+Payment gagal tetapi tidak ada pesan error yang ditampilkan kepada user.
+
+- Severity
+High — kegagalan pembayaran merupakan fungsi utama dan dapat menyebabkan user tidak mengetahui status transaksinya.
+
+- Recommendation
+Tambahkan error handling dan pesan yang informatif ketika payment gagal.
+```
+## BUG-002 — Product Page Not Responsive
+```
+Module: Product
+Severity: Medium
+Priority: Medium
+Status: Open
+
+- Steps to Reproduce
+Buka product page.
+Gunakan browser dengan mobile resolution.
+Scroll halaman product.
+
+Expected Result
+Seluruh komponen product dapat ditampilkan dengan baik pada layar mobile.
+
+Actual Result
+Beberapa bagian halaman keluar dari area layar dan membutuhkan horizontal scrolling.
+
+Recommendation
+Review responsive CSS pada product page dan lakukan testing kembali pada beberapa mobile resolution.
+```
+# 4. SQL Database Testing
+
+## 4a. Validate User
+```
+SELECT id, name, email
+FROM users
+WHERE email = 'testuser@example.com';
+```
+Tujuan: memastikan data user berhasil tersimpan setelah proses registrasi.
+
+## 4b. Validate Product
+```
+SELECT id, product_name, price, stock
+FROM products
+WHERE id = 1001;
+```
+Tujuan: memastikan informasi product pada database sesuai dengan data yang ditampilkan pada aplikasi.
+
+## 4c. Validate Cart
+```
+SELECT user_id, product_id, quantity
+FROM cart
+WHERE user_id = 101;
+```
+Tujuan: memastikan product yang ditambahkan ke cart tersimpan dengan user yang benar.
+
+## 4d. Validate Order
+```
+SELECT order_id, user_id, total_amount, status
+FROM orders
+WHERE user_id = 101
+ORDER BY order_id DESC;
+```
+Tujuan: memastikan order berhasil dibuat setelah checkout.
+
+## 4e. Validate Payment
+```
+SELECT order_id, payment_method, payment_status
+FROM payments
+WHERE order_id = 5001;
+```
+Tujuan: memastikan status pembayaran tersimpan dengan benar.
+
+## 4f. Validate Order Total
+```
+SELECT 
+    order_id,
+    total_amount
+FROM orders
+WHERE order_id = 5001;
+```
+Total pada database kemudian dibandingkan dengan total yang ditampilkan pada halaman checkout.
+
+`Note: Query di atas merupakan contoh portfolio. Nama tabel dan kolom harus disesuaikan dengan database aplikasi yang benar-benar digunakan.`
+
