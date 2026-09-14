@@ -35,15 +35,15 @@ qa-ecommerce-portfolio/
 
 # README.md
 
-# QA E-Commerce Testing Portfolio
-## About Project
+## QA E-Commerce Testing Portfolio
+### About Project
 
 This project is a Quality Assurance testing portfolio for a simulated E-Commerce web application.
 The purpose of this project is to demonstrate my skills in manual testing, API testing, database validation, bug reporting, and test documentation.
 
 ## Role : Quality Assurance / QA Tester
 
-## Testing Scope
+### Testing Scope
 
 The following features were tested:
 - User Registration
@@ -68,7 +68,7 @@ The following features were tested:
 - API Testing
 - Database Testing
 
-## Tools :
+### Tools :
 - Jira
 - Postman
 - MySQL
@@ -77,19 +77,19 @@ The following features were tested:
 - Git & GitHub
 - Chrome DevTools
 
-## Test Environment
+### Test Environment
 Browser: Google Chrome
 OS: MacOS
 Testing Type: Manual & API Testing
 
-# Project Deliverables
+## Project Deliverables
 
-## Test Cases
+### Test Cases
 A collection of test cases covering the main functionality of the e-commerce application.
 
 Total Test Cases: 40
 
-## Bug Reports
+### Bug Reports
 Documented bugs with:
 
 - Bug ID
@@ -103,7 +103,7 @@ Documented bugs with:
 - Evidence
 - Bug status
 
-## API Testing
+### API Testing
 API testing was performed using Postman.
 
 Tested endpoints include:
@@ -115,7 +115,7 @@ Tested endpoints include:
 - Update Cart
 - Delete Cart
 
-## Database Testing
+### Database Testing
 SQL queries were used to validate:
 
 - User data
@@ -124,7 +124,7 @@ SQL queries were used to validate:
 - Order data
 - Payment status
 
-## Testing Workflow
+### Testing Workflow
 ```
 Requirement Analysis
         ↓
@@ -145,7 +145,7 @@ Regression Testing
 Final Test Report
 ```
 
-## Test Result
+### Test Result
 Metric	Result
 
 ```
@@ -156,21 +156,21 @@ Total Test Cases	40
 - Pass Rate	87.5%
 ```
 
-## Conclusion
+### Conclusion
 Based on the test execution results, several functional issues were identified and documented. After the bug fixing process, retesting and regression testing should be performed before the application is released to production.
 
-## Contact
+### Contact
 
 - Name: `Heri Anhari`
 - Email: hr.anhari@gmail.com
 - LinkedIn: https://www.linkedin.com/in/heri-anhari-1b175bba/
 - GitHub: https://github.com/HerryAnhari/
 
-# 2. Test Case — 40 Data
-Go to TestCases.xlsx file
+## 01. Test Case — 40 Data
+Go to [TestCases](https://github.com/HerryAnhari/sampleportofolioqa/blob/main/TestCases.xlsx) file
 
-# 3. Bug Report
-## BUG-001 — Payment Failed Message Not Displayed
+## 02. Bug Report
+### BUG-001 — Payment Failed Message Not Displayed
 ```
 Module: Payment
 Severity: High
@@ -205,7 +205,7 @@ High — kegagalan pembayaran merupakan fungsi utama dan dapat menyebabkan user 
 - Recommendation
 Tambahkan error handling dan pesan yang informatif ketika payment gagal.
 ```
-## BUG-002 — Product Page Not Responsive
+### BUG-002 — Product Page Not Responsive
 ```
 Module: Product
 Severity: Medium
@@ -226,9 +226,47 @@ Beberapa bagian halaman keluar dari area layar dan membutuhkan horizontal scroll
 Recommendation
 Review responsive CSS pada product page dan lakukan testing kembali pada beberapa mobile resolution.
 ```
-# 4. SQL Database Testing
+## 03. Postman Collection
+Untuk bagian API, struktur collection-nya bisa seperti ini:
+```
+E-Commerce API
+│
+├── Authentication
+│   ├── Register
+│   └── Login
+│
+├── Products
+│   ├── Get Products
+│   └── Get Product Detail
+│
+├── Cart
+│   ├── Add To Cart
+│   ├── Update Cart
+│   └── Delete Cart
+│
+└── Order
+    ├── Create Order
+    └── Get Order
+```
+Contoh test script Postman:
+```
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
 
-## 4a. Validate User
+pm.test("Response time is below 2000ms", function () {
+    pm.expect(pm.response.responseTime).to.be.below(2000);
+});
+
+pm.test("Response contains token", function () {
+    const response = pm.response.json();
+    pm.expect(response).to.have.property("token");
+});
+```
+
+## 04. SQL Database Testing
+
+### Validate User
 ```
 SELECT id, name, email
 FROM users
@@ -236,7 +274,7 @@ WHERE email = 'testuser@example.com';
 ```
 Tujuan: memastikan data user berhasil tersimpan setelah proses registrasi.
 
-## 4b. Validate Product
+### Validate Product
 ```
 SELECT id, product_name, price, stock
 FROM products
@@ -244,7 +282,7 @@ WHERE id = 1001;
 ```
 Tujuan: memastikan informasi product pada database sesuai dengan data yang ditampilkan pada aplikasi.
 
-## 4c. Validate Cart
+### Validate Cart
 ```
 SELECT user_id, product_id, quantity
 FROM cart
@@ -252,7 +290,7 @@ WHERE user_id = 101;
 ```
 Tujuan: memastikan product yang ditambahkan ke cart tersimpan dengan user yang benar.
 
-## 4d. Validate Order
+### Validate Order
 ```
 SELECT order_id, user_id, total_amount, status
 FROM orders
@@ -261,7 +299,7 @@ ORDER BY order_id DESC;
 ```
 Tujuan: memastikan order berhasil dibuat setelah checkout.
 
-## 4e. Validate Payment
+### Validate Payment
 ```
 SELECT order_id, payment_method, payment_status
 FROM payments
@@ -269,7 +307,7 @@ WHERE order_id = 5001;
 ```
 Tujuan: memastikan status pembayaran tersimpan dengan benar.
 
-## 4f. Validate Order Total
+### Validate Order Total
 ```
 SELECT 
     order_id,
@@ -281,3 +319,55 @@ Total pada database kemudian dibandingkan dengan total yang ditampilkan pada hal
 
 `Note: Query di atas merupakan contoh portfolio. Nama tabel dan kolom harus disesuaikan dengan database aplikasi yang benar-benar digunakan.`
 
+## 05. Final Test Report
+
+### Project
+E-Commerce Web Application
+
+### Testing Period
+[14-Agustus-2026] – [29-Agustus-2026]
+
+### Testing Scope
+Testing dilakukan pada fitur:
+
+- Registration
+- Login
+- Product
+- Shopping Cart
+- Checkout
+- Payment
+- Order History
+
+### Test Execution Summary
+```
+Result
+Total Test Cases	40
+Passed	35
+Failed	5
+Blocked	0
+Pass Rate	87.5%
+```
+
+### Defect Summary
+```
+Severity	Total
+Critical	0
+High	1
+Medium	2
+Low	2
+```
+
+### Overall Result
+
+Testing menemukan beberapa issue pada aplikasi, terutama pada proses payment dan responsive UI.
+Issue dengan severity tinggi perlu diperbaiki sebelum production release.
+Setelah bug diperbaiki, QA perlu melakukan:
+
+1. Retesting terhadap defect.
+2. Regression testing.
+3. Smoke testing.
+4. Final verification.
+
+### Recommendation
+
+Aplikasi belum direkomendasikan untuk production release sampai seluruh defect dengan severity High diselesaikan dan dilakukan regression testing.
