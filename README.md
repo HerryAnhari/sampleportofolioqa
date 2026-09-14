@@ -7,35 +7,35 @@ Ini hanya contoh portofolio, Kalau targetmu melamar sebagai Junior QA/QA Tester,
 ```
 qa-ecommerce-portfolio/
 │
-├── 01-README.md
+├── -README.md
 │
-├── 02-Test-Case/
+├── 01-Test-Case/
 │   └── Test-Case-Ecommerce.xlsx
 │
-├── 03-Bug-Report/
+├── 02-Bug-Report/
 │   └── Bug-Report.md
 │
-├── 04-API-Testing/
+├── 03-API-Testing/
 │   ├── Ecommerce-API.postman_collection.json
 │   └── API-Test-Report.md
 │
-├── 05-Database-Testing/
+├── 04-Database-Testing/
 │   ├── database-query.sql
 │   └── Database-Test-Report.md
 │
-├── 06-Test-Report/
+├── 05-Test-Report/
 │   └── Final-Test-Report.md
 │
-└── 07-Screenshots/
+└── 06-Screenshots/
     ├── login.png
     ├── product.png
     ├── checkout.png
     └── jira-bug.png
 ```
 
-# 1. README.md
+# README.md
 
-# 1a. QA E-Commerce Testing Portfolio
+# QA E-Commerce Testing Portfolio
 ## About Project
 
 This project is a Quality Assurance testing portfolio for a simulated E-Commerce web application.
@@ -82,7 +82,7 @@ Browser: Google Chrome
 OS: MacOS
 Testing Type: Manual & API Testing
 
-# 1b. Project Deliverables
+# Project Deliverables
 
 ## Test Cases
 A collection of test cases covering the main functionality of the e-commerce application.
@@ -156,10 +156,10 @@ Total Test Cases	40
 - Pass Rate	87.5%
 ```
 
-## 1c. Conclusion
+## Conclusion
 Based on the test execution results, several functional issues were identified and documented. After the bug fixing process, retesting and regression testing should be performed before the application is released to production.
 
-## 1d. Contact
+## Contact
 
 - Name: `Heri Anhari`
 - Email: hr.anhari@gmail.com
